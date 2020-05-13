@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01 BoxApp", "Chapter_6\01 B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter_6", "Chapter_6", "{557EB2FE-92F0-432B-A5FC-857F63F98037}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 ShapesApp", "Chapter_6\02 ShapesApp\02 ShapesApp.vcxproj", "{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,12 +25,21 @@ Global
 		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Release|x64.Build.0 = Release|x64
 		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Release|x86.ActiveCfg = Release|Win32
 		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Release|x86.Build.0 = Release|Win32
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Debug|x64.ActiveCfg = Debug|x64
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Debug|x64.Build.0 = Debug|x64
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Debug|x86.ActiveCfg = Debug|Win32
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Debug|x86.Build.0 = Debug|Win32
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Release|x64.ActiveCfg = Release|x64
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Release|x64.Build.0 = Release|x64
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Release|x86.ActiveCfg = Release|Win32
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DF850927-4D32-4F31-94C7-4BE35E7EFC96} = {557EB2FE-92F0-432B-A5FC-857F63F98037}
+		{BA41B31E-9AE6-4FD3-9BA5-9E9618238E50} = {557EB2FE-92F0-432B-A5FC-857F63F98037}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2115F6F5-7742-4393-9982-F3BCA02C440B}
