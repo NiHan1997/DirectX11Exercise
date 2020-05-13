@@ -1,16 +1,20 @@
 #pragma once
-
 #include "..\..\Common\d3dApp.h"
 #include "..\..\Common\d3dUtil.h"
 
+using Microsoft::WRL::ComPtr;
 using namespace DirectX;
 using namespace DirectX::PackedVector;
-using Microsoft::WRL::ComPtr;
 
-/// 顶点数据.
-struct Vertex
+/// 顶点位置数据.
+struct VertexPosition
 {
 	XMFLOAT3 Pos;
+};
+
+/// 顶点颜色数据.
+struct VertexColor
+{
 	XMFLOAT4 Color;
 };
 
@@ -48,6 +52,7 @@ private:
 private:
 	// 顶点缓冲区, 索引缓冲区, 常量缓冲区.
 	ComPtr<ID3D11Buffer> mVertexPositionBuffer = nullptr;
+	ComPtr<ID3D11Buffer> mVertexColorBuffer = nullptr;
 	ComPtr<ID3D11Buffer> mIndexBuffer = nullptr;
 	ComPtr<ID3D11Buffer> mConstantBuffer = nullptr;
 
@@ -88,3 +93,4 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	return theApp.Run();
 }
+

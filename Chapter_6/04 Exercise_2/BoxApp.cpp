@@ -67,9 +67,11 @@ void BoxApp::DrawScene()
 	md3dImmediateContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	// 绑定顶点缓冲区和索引缓冲区.
-	UINT stride = sizeof(Vertex);
+	UINT posStride = sizeof(VertexPosition);
+	UINT colorStride = sizeof(VertexColor);
 	UINT offset = 0;
-	md3dImmediateContext->IASetVertexBuffers(0, 1, mVertexPositionBuffer.GetAddressOf(), &stride, &offset);
+	md3dImmediateContext->IASetVertexBuffers(0, 1, mVertexPositionBuffer.GetAddressOf(), &posStride, &offset);
+	md3dImmediateContext->IASetVertexBuffers(1, 1, mVertexColorBuffer.GetAddressOf(), &colorStride, &offset);
 	md3dImmediateContext->IASetIndexBuffer(mIndexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
 
 	// 设置顶点着色器和像素着色器, 以及顶点需要的常量缓冲区.
@@ -135,36 +137,65 @@ void BoxApp::OnMouseMove(WPARAM btnState, int x, int y)
 void BoxApp::BuildBuffers()
 {
 	///
-	/// 创建顶点缓冲区.
+	/// 创建位置顶点缓冲区.
 	///
-	std::vector<Vertex> vertices =
+	std::vector<VertexPosition> posVertices =
 	{
-		{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(Colors::White)  },
-		{ XMFLOAT3(-1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Black)   },
-		{ XMFLOAT3(+1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Red)     },
-		{ XMFLOAT3(+1.0f, -1.0f, -1.0f), XMFLOAT4(Colors::Green)   },
-		{ XMFLOAT3(-1.0f, -1.0f, +1.0f), XMFLOAT4(Colors::Blue)    },
-		{ XMFLOAT3(-1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Yellow)  },
-		{ XMFLOAT3(+1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Cyan)    },
-		{ XMFLOAT3(+1.0f, -1.0f, +1.0f), XMFLOAT4(Colors::Magenta) }
+		{ XMFLOAT3(-1.0f, -1.0f, -1.0f) },
+		{ XMFLOAT3(-1.0f, +1.0f, -1.0f) },
+		{ XMFLOAT3(+1.0f, +1.0f, -1.0f) },
+		{ XMFLOAT3(+1.0f, -1.0f, -1.0f) },
+		{ XMFLOAT3(-1.0f, -1.0f, +1.0f) },
+		{ XMFLOAT3(-1.0f, +1.0f, +1.0f) },
+		{ XMFLOAT3(+1.0f, +1.0f, +1.0f) },
+		{ XMFLOAT3(+1.0f, -1.0f, +1.0f) }
 	};
 
-	D3D11_BUFFER_DESC vbd;
-	vbd.Usage = D3D11_USAGE_IMMUTABLE;
-	vbd.ByteWidth = sizeof(Vertex) * vertices.size();
-	vbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	vbd.CPUAccessFlags = 0;
-	vbd.StructureByteStride = 0;
-	vbd.MiscFlags = 0;
+	D3D11_BUFFER_DESC posVbd;
+	posVbd.Usage = D3D11_USAGE_IMMUTABLE;
+	posVbd.ByteWidth = sizeof(VertexPosition) * posVertices.size();
+	posVbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	posVbd.CPUAccessFlags = 0;
+	posVbd.StructureByteStride = 0;
+	posVbd.MiscFlags = 0;
 
-	D3D11_SUBRESOURCE_DATA vInitData;
-	vInitData.pSysMem = vertices.data();
-	HR(md3dDevice->CreateBuffer(&vbd, &vInitData, mVertexPositionBuffer.GetAddressOf()));
+	D3D11_SUBRESOURCE_DATA vpInitData;
+	vpInitData.pSysMem = posVertices.data();
+	HR(md3dDevice->CreateBuffer(&posVbd, &vpInitData, mVertexPositionBuffer.GetAddressOf()));
+
+	///
+	/// 创建颜色顶点缓冲区.
+	///
+	std::vector<VertexColor> colorVetices =
+	{
+		{ XMFLOAT4(Colors::White) },
+		{ XMFLOAT4(Colors::Black) },
+		{ XMFLOAT4(Colors::Red) },
+		{ XMFLOAT4(Colors::Green) },
+		{ XMFLOAT4(Colors::Blue) },
+		{ XMFLOAT4(Colors::Yellow) },
+		{ XMFLOAT4(Colors::Cyan) },
+		{ XMFLOAT4(Colors::Magenta) }
+	};
+
+	D3D11_BUFFER_DESC colorVbd;
+	colorVbd.Usage = D3D11_USAGE_IMMUTABLE;
+	colorVbd.ByteWidth = sizeof(VertexColor) * colorVetices.size();
+	colorVbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	colorVbd.CPUAccessFlags = 0;
+	colorVbd.StructureByteStride = 0;
+	colorVbd.MiscFlags = 0;
+
+	D3D11_SUBRESOURCE_DATA vcInitData;
+	vcInitData.pSysMem = colorVetices.data();
+	vcInitData.SysMemPitch = 0;
+	vcInitData.SysMemSlicePitch = 0;
+	HR(md3dDevice->CreateBuffer(&colorVbd, &vcInitData, mVertexColorBuffer.GetAddressOf()));
 
 	///
 	/// 创建索引缓冲区.
 	///
-	std::vector<UINT> indices = 
+	std::vector<UINT> indices =
 	{
 		// front face
 		0, 1, 2,
@@ -235,7 +266,7 @@ void BoxApp::BuildShadersAndInputLayout()
 	{
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0,
 		D3D11_INPUT_PER_VERTEX_DATA, 0},
-		{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12,
+		{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 1, 0,
 		D3D11_INPUT_PER_VERTEX_DATA, 0},
 	};
 
