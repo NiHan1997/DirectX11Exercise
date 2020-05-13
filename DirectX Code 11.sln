@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01 BoxApp", "Chapter_6\01 BoxApp\01 BoxApp.vcxproj", "{DF850927-4D32-4F31-94C7-4BE35E7EFC96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter_6", "Chapter_6", "{557EB2FE-92F0-432B-A5FC-857F63F98037}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Debug|x64.ActiveCfg = Debug|x64
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Debug|x64.Build.0 = Debug|x64
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Debug|x86.ActiveCfg = Debug|Win32
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Debug|x86.Build.0 = Debug|Win32
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Release|x64.ActiveCfg = Release|x64
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Release|x64.Build.0 = Release|x64
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Release|x86.ActiveCfg = Release|Win32
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF850927-4D32-4F31-94C7-4BE35E7EFC96} = {557EB2FE-92F0-432B-A5FC-857F63F98037}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2115F6F5-7742-4393-9982-F3BCA02C440B}
+	EndGlobalSection
+EndGlobal
