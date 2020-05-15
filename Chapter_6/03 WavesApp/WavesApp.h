@@ -68,7 +68,7 @@ public:
 	/// 父类的相关虚方法.
 	bool Init() override;
 	void OnResize() override;
-	void UpdateScene(float dt) override;
+	void UpdateScene(GameTimer gt) override;
 	void DrawScene() override;
 
 	void OnMouseDown(WPARAM btnState, int x, int y) override;
@@ -76,10 +76,10 @@ public:
 	void OnMouseMove(WPARAM btnState, int x, int y) override;
 
 	/// 更新摄像机数据.
-	void UpdateCamera(float dt);
+	void UpdateCamera(GameTimer gt);
 
 	// 更新波浪顶点.
-	void UpdateWaves(float dt);
+	void UpdateWaves(GameTimer gt);
 
 private:
 	/// 顶点缓冲区, 索引缓冲区, 常量缓冲区的构建.

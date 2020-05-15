@@ -20,7 +20,6 @@
 #include <fstream>
 #include <vector>
 #include "MathHelper.h"
-#include "LightHelper.h"
 #include <wrl.h>
 #include <unordered_map>
 
@@ -124,4 +123,45 @@ struct MeshGeometry
 
 	// 几何体(们)的偏移量数据..
 	std::unordered_map<std::string, SubmeshGeometry> DrawArgs;
+};
+
+/// 光源定义结构体.
+struct Light
+{
+	DirectX::XMFLOAT3 Strength = { 0.5f, 0.5f, 0.5f };		// 光照强度.
+	float FalloffStart = 1.0f;								// 点光源/聚光灯衰减开始.
+	DirectX::XMFLOAT3 Direction = { 0.0f, -1.0f, 0.0f };	// 平行光/聚光灯方向.
+	float FalloffEnd = 10.0f;								// 点光源/聚光灯衰减结束.
+	DirectX::XMFLOAT3 Position = { 0.0f, 0.0f, 0.0f };		// 点光源/聚光灯位置.
+	float SpotPower = 64.0f;								// 点光源强度.
+};
+
+/// 光源的最大数量.
+#define MaxLights 16
+
+/// 材质常量缓冲区.
+struct MaterialConstants
+{
+	DirectX::XMFLOAT4 DiffuseAlbedo = { 1.0f, 1.0f, 1.0f, 1.0f };
+	DirectX::XMFLOAT3 FresnelR0 = { 0.01f, 0.01f, 0.01f };
+	float Roughness = 0.25f;
+
+	// 纹理映射矩阵.
+	DirectX::XMFLOAT4X4 MatTransform = MathHelper::Identity4x4();
+};
+
+/// 简单的材质球的定义.
+struct Material
+{
+	std::string Name;
+
+	int MatCBIndex = -1;
+
+	int DiffuseSrvHeapIndex = -1;
+	int NormalSrvHeapIndex = -1;
+
+	DirectX::XMFLOAT4 DiffuseAlbedo = { 1.0f, 1.0f, 1.0f, 1.0f };
+	DirectX::XMFLOAT3 FresnelR0 = { 0.01f, 0.01f, 0.01f };
+	float Roughness = 0.25f;
+	DirectX::XMFLOAT4X4 MatTransform = MathHelper::Identity4x4();
 };

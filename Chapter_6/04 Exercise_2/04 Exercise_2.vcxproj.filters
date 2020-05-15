@@ -32,9 +32,6 @@
     <ClCompile Include="..\..\Common\GeometryGenerator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\LightHelper.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Common\MathHelper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -62,9 +59,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\GeometryGenerator.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Common\LightHelper.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Common\MathHelper.h">

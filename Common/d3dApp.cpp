@@ -85,7 +85,7 @@ int D3DApp::Run()
 			if( !mAppPaused )
 			{
 				// 更新场景应该不受帧率的限制, 否则会出现"假"卡顿.
-				UpdateScene(mTimer.DeltaTime());
+				UpdateScene(mTimer);
 
 				// 限制帧率.
 				if (timeElapsed > 0.0166f)

@@ -28,7 +28,7 @@ void BoxApp::OnResize()
 	XMStoreFloat4x4(&mProj, proj);
 }
 
-void BoxApp::UpdateScene(float dt)
+void BoxApp::UpdateScene(GameTimer gt)
 {
 	float x = mRadius * sinf(mPhi) * cosf(mTheta);
 	float z = mRadius * sinf(mPhi) * sinf(mTheta);

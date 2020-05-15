@@ -145,7 +145,6 @@
     <ClCompile Include="..\..\Common\dxerr.cpp" />
     <ClCompile Include="..\..\Common\GameTimer.cpp" />
     <ClCompile Include="..\..\Common\GeometryGenerator.cpp" />
-    <ClCompile Include="..\..\Common\LightHelper.cpp" />
     <ClCompile Include="..\..\Common\MathHelper.cpp" />
     <ClCompile Include="Waves.cpp" />
     <ClCompile Include="WavesApp.cpp" />
@@ -158,7 +157,6 @@
     <ClInclude Include="..\..\Common\dxerr.h" />
     <ClInclude Include="..\..\Common\GameTimer.h" />
     <ClInclude Include="..\..\Common\GeometryGenerator.h" />
-    <ClInclude Include="..\..\Common\LightHelper.h" />
     <ClInclude Include="..\..\Common\MathHelper.h" />
     <ClInclude Include="Waves.h" />
     <ClInclude Include="WavesApp.h" />

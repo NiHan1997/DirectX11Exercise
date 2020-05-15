@@ -30,7 +30,7 @@ public:
 	// 绘制场景必需的一些方法, 需要在App中实现这些虚方法.(如果需要的话)
 	virtual bool Init();
 	virtual void OnResize();
-	virtual void UpdateScene(float dt) = 0;
+	virtual void UpdateScene(GameTimer gt) = 0;
 	virtual void DrawScene() = 0;
 	virtual LRESULT MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -40,7 +40,7 @@ public:
 	virtual void OnMouseMove(WPARAM btnState, int x, int y) { }
 
 protected:
-	// 初始化环境》
+	// 初始化环境.
 	bool InitMainWindow();
 	bool InitDirect3D();
 

@@ -10,7 +10,7 @@
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
     <Filter Include="着色器">
-      <UniqueIdentifier>{dc315ff8-8759-4803-b296-7c107df96348}</UniqueIdentifier>
+      <UniqueIdentifier>{44448e58-362d-48d0-9292-1d753b562cfd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,9 +73,15 @@
     <ClInclude Include="..\..\Common\MathHelper.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FrameResources.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Shaders\color.hlsl">
+    <CustomBuild Include="Shaders\Default.hlsl">
+      <Filter>着色器</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Shaders\LightingUtil.hlsl">
       <Filter>着色器</Filter>
     </CustomBuild>
   </ItemGroup>

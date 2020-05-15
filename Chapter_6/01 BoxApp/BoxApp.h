@@ -31,7 +31,7 @@ public:
 	/// 父类的相关虚方法.
 	bool Init() override;
 	void OnResize() override;
-	void UpdateScene(float dt) override;
+	void UpdateScene(GameTimer gt) override;
 	void DrawScene() override;
 
 	void OnMouseDown(WPARAM btnState, int x, int y) override;

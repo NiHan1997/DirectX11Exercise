@@ -32,7 +32,7 @@ void ShapesApp::OnResize()
 	XMStoreFloat4x4(&mProj, proj);
 }
 
-void ShapesApp::UpdateScene(float dt)
+void ShapesApp::UpdateScene(GameTimer gt)
 {
 	float x = mRadius * sinf(mPhi) * cosf(mTheta);
 	float z = mRadius * sinf(mPhi) * sinf(mTheta);

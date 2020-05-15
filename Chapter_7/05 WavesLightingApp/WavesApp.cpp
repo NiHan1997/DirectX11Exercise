@@ -18,6 +18,7 @@ bool WavesApp::Init()
 	BuildHillBuffers();
 	BuildWavesBuffers();
 	BuildShadersAndInputLayout();
+	BuildMaterials();
 	BuildRenderItems();
 	BuildConstantBuffers();
 	BuildRasterizerStates();
@@ -36,6 +37,7 @@ void WavesApp::OnResize()
 void WavesApp::UpdateScene(GameTimer gt)
 {
 	UpdateCamera(gt);
+	UpdatePassCB(gt);
 	UpdateWaves(gt);
 }
 
@@ -53,10 +55,11 @@ void WavesApp::DrawScene()
 
 	// 设置顶点着色器和像素着色器, 以及顶点需要的常量缓冲区.
 	md3dImmediateContext->VSSetShader(mVertexShader.Get(), nullptr, 0);
-	md3dImmediateContext->VSSetConstantBuffers(0, 1, mConstantBuffer.GetAddressOf());
 	md3dImmediateContext->PSSetShader(mPixelShader.Get(), nullptr, 0);
 
-	//md3dImmediateContext->RSSetState(mRasterizerStates["opaque_wireframe"].Get());
+	md3dImmediateContext->VSSetConstantBuffers(2, 1, mConstantBuffers["pass"].GetAddressOf());
+	md3dImmediateContext->PSSetConstantBuffers(2, 1, mConstantBuffers["pass"].GetAddressOf());
+
 	md3dImmediateContext->RSSetState(nullptr);
 
 	// 绘制.
@@ -121,6 +124,39 @@ void WavesApp::UpdateCamera(GameTimer gt)
 	XMStoreFloat4x4(&mView, view);
 }
 
+void WavesApp::UpdatePassCB(GameTimer gt)
+{
+	XMMATRIX view = XMLoadFloat4x4(&mView);
+	XMMATRIX proj = XMLoadFloat4x4(&mProj);
+	XMMATRIX viewProj = XMMatrixMultiply(view, proj);
+	XMMATRIX invView = XMMatrixInverse(&XMMatrixDeterminant(view), view);
+	XMMATRIX invProj = XMMatrixInverse(&XMMatrixDeterminant(proj), proj);
+	XMMATRIX invViewProj = XMMatrixInverse(&XMMatrixDeterminant(viewProj), viewProj);
+
+	XMStoreFloat4x4(&mMainPassCB.View, XMMatrixTranspose(view));
+	XMStoreFloat4x4(&mMainPassCB.InvView, XMMatrixTranspose(invView));
+	XMStoreFloat4x4(&mMainPassCB.Proj, XMMatrixTranspose(proj));
+	XMStoreFloat4x4(&mMainPassCB.InvProj, XMMatrixTranspose(invProj));
+	XMStoreFloat4x4(&mMainPassCB.ViewProj, XMMatrixTranspose(viewProj));
+	XMStoreFloat4x4(&mMainPassCB.InvViewProj, XMMatrixTranspose(invViewProj));
+
+	mMainPassCB.EyePosW = mEyePos;
+	mMainPassCB.RenderTargetSize = XMFLOAT2((float)mClientWidth, (float)mClientHeight);
+	mMainPassCB.InvRenderTargetSize = XMFLOAT2(1.0f / mClientWidth, 1.0f / mClientHeight);
+	mMainPassCB.NearZ = 1.0f;
+	mMainPassCB.FarZ = 1000.0f;
+	mMainPassCB.TotalTime = gt.TotalTime();
+	mMainPassCB.DeltaTime = gt.DeltaTime();
+	mMainPassCB.AmbientLight = { 0.25f, 0.25f, 0.35f, 1.0f };
+
+	XMVECTOR lightDir = -MathHelper::SphericalToCartesian(1.0f, mSunTheta, mSunPhi);
+	XMStoreFloat3(&mMainPassCB.Lights[0].Direction, lightDir);
+	mMainPassCB.Lights[0].Strength = { 1.0f, 1.0f, 1.0f };
+
+	d3dUtil::CopyDataToGpu(md3dImmediateContext.Get(), &mMainPassCB,
+		sizeof(PassConstants), mConstantBuffers["pass"].Get());
+}
+
 void WavesApp::UpdateWaves(GameTimer gt)
 {
 	static float t_base = 0.0f;
@@ -143,6 +179,7 @@ void WavesApp::UpdateWaves(GameTimer gt)
 	{
 		Vertex v;
 		v.Position = mWaves->Position(i);
+		v.Normal = mWaves->Normal(i);
 		v.Color = XMFLOAT4(Colors::Blue);
 
 		vertices[i] = v;
@@ -165,6 +202,7 @@ void WavesApp::BuildHillBuffers()
 		auto& p = grid.Vertices[i].Position;
 		vertices[i].Position = p;
 		vertices[i].Position.y = GetHillsHeight(p.x, p.z);
+		vertices[i].Normal = GetHillsNormal(p.x, p.z);
 
 		if (vertices[i].Position.y < -10.0f)
 			vertices[i].Color = XMFLOAT4(1.0f, 0.96f, 0.62f, 1.0f);
@@ -314,21 +352,44 @@ void WavesApp::BuildWavesBuffers()
 
 void WavesApp::BuildConstantBuffers()
 {
-	D3D11_BUFFER_DESC cbd;
-	cbd.Usage = D3D11_USAGE_DYNAMIC;
-	cbd.ByteWidth = sizeof(ObjectConstants);
-	cbd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
-	cbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-	cbd.MiscFlags = 0;
-	cbd.StructureByteStride = 0;
+	/// 物体常量缓冲区.
+	D3D11_BUFFER_DESC objCbd;
+	objCbd.Usage = D3D11_USAGE_DYNAMIC;
+	objCbd.ByteWidth = sizeof(ObjectConstants);
+	objCbd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	objCbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	objCbd.MiscFlags = 0;
+	objCbd.StructureByteStride = 0;
 
-	HR(md3dDevice->CreateBuffer(&cbd, nullptr, mConstantBuffer.GetAddressOf()));
+	HR(md3dDevice->CreateBuffer(&objCbd, nullptr, mConstantBuffers["object"].GetAddressOf()));
+
+	/// 材质常量缓冲区.
+	D3D11_BUFFER_DESC matCbd;
+	matCbd.Usage = D3D11_USAGE_DYNAMIC;
+	matCbd.ByteWidth = sizeof(MaterialConstants);
+	matCbd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	matCbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	matCbd.MiscFlags = 0;
+	matCbd.StructureByteStride = 0;
+
+	HR(md3dDevice->CreateBuffer(&matCbd, nullptr, mConstantBuffers["material"].GetAddressOf()));
+
+	/// 每一帧的常量数据.
+	D3D11_BUFFER_DESC passCbd;
+	passCbd.Usage = D3D11_USAGE_DYNAMIC;
+	passCbd.ByteWidth = sizeof(PassConstants);
+	passCbd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	passCbd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	passCbd.MiscFlags = 0;
+	passCbd.StructureByteStride = 0;
+
+	HR(md3dDevice->CreateBuffer(&passCbd, nullptr, mConstantBuffers["pass"].GetAddressOf()));
 }
 
 void WavesApp::BuildShadersAndInputLayout()
 {
-	ComPtr<ID3DBlob> vertexBlob = d3dUtil::CompileShader(L"Shaders/color.hlsl", nullptr, "VS", "vs_5_0");
-	ComPtr<ID3DBlob> pixelBlob = d3dUtil::CompileShader(L"Shaders/color.hlsl", nullptr, "PS", "ps_5_0");
+	ComPtr<ID3DBlob> vertexBlob = d3dUtil::CompileShader(L"Shaders/Default.hlsl", nullptr, "VS", "vs_5_0");
+	ComPtr<ID3DBlob> pixelBlob = d3dUtil::CompileShader(L"Shaders/Default.hlsl", nullptr, "PS", "ps_5_0");
 
 	HR(md3dDevice->CreateVertexShader(vertexBlob->GetBufferPointer(), vertexBlob->GetBufferSize(),
 		nullptr, mVertexShader.GetAddressOf()));
@@ -339,7 +400,9 @@ void WavesApp::BuildShadersAndInputLayout()
 	{
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0,
 		D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12,
+		{ "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12,
+		D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 24,
 		D3D11_INPUT_PER_VERTEX_DATA, 0 }
 	};
 
@@ -363,12 +426,33 @@ void WavesApp::BuildRasterizerStates()
 	HR(md3dDevice->CreateRasterizerState(&rsDesc, mRasterizerStates["opaque_wireframe"].GetAddressOf()));
 }
 
+void WavesApp::BuildMaterials()
+{
+	auto grass = std::make_unique<Material>();
+	grass->Name = "grass";
+	grass->MatCBIndex = 0;
+	grass->DiffuseAlbedo = XMFLOAT4(0.2f, 0.6f, 0.2f, 1.0f);
+	grass->FresnelR0 = XMFLOAT3(0.01f, 0.01f, 0.01f);
+	grass->Roughness = 0.125f;
+
+	auto water = std::make_unique<Material>();
+	water->Name = "water";
+	water->MatCBIndex = 1;
+	water->DiffuseAlbedo = XMFLOAT4(0.0f, 0.2f, 0.6f, 1.0f);
+	water->FresnelR0 = XMFLOAT3(0.1f, 0.1f, 0.1f);
+	water->Roughness = 0.0f;
+
+	mMaterials["grass"] = std::move(grass);
+	mMaterials["water"] = std::move(water);
+}
+
 void WavesApp::BuildRenderItems()
 {
 	auto wavesRitem = std::make_unique<RenderItem>();
 	wavesRitem->World = MathHelper::Identity4x4();
 	wavesRitem->ObjectCBIndex = 0;
 	wavesRitem->Geo = mGeos["wavesGeo"].get();
+	wavesRitem->Mat = mMaterials["water"].get();
 	wavesRitem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
 	wavesRitem->IndexCount = wavesRitem->Geo->DrawArgs["waves"].IndexCount;
 	wavesRitem->StartIndexLocation = wavesRitem->Geo->DrawArgs["waves"].StartIndexLocation;
@@ -382,6 +466,7 @@ void WavesApp::BuildRenderItems()
 	hillRitem->World = MathHelper::Identity4x4();
 	hillRitem->ObjectCBIndex = 1;
 	hillRitem->Geo = mGeos["hillGeo"].get();
+	hillRitem->Mat = mMaterials["grass"].get();
 	hillRitem->PrimitiveType = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
 	hillRitem->IndexCount = hillRitem->Geo->DrawArgs["hill"].IndexCount;
 	hillRitem->StartIndexLocation = hillRitem->Geo->DrawArgs["hill"].StartIndexLocation;
@@ -407,16 +492,25 @@ void WavesApp::DrawRenderItems(ID3D11DeviceContext* context, const std::vector<R
 		context->IASetPrimitiveTopology(ri->PrimitiveType);
 
 		XMMATRIX world = XMLoadFloat4x4(&ri->World);
-		XMMATRIX view = XMLoadFloat4x4(&mView);
-		XMMATRIX proj = XMLoadFloat4x4(&mProj);
-		XMMATRIX worldViewProj = world * view * proj;
 
 		// 常量缓冲区数据.
 		ObjectConstants objConstants;
-		XMStoreFloat4x4(&objConstants.WorldViewProj, XMMatrixTranspose(worldViewProj));
-		d3dUtil::CopyDataToGpu(context, &objConstants, sizeof(ObjectConstants), mConstantBuffer.Get());
+		XMStoreFloat4x4(&objConstants.World, XMMatrixTranspose(world));
+		d3dUtil::CopyDataToGpu(context, &objConstants, 
+			sizeof(ObjectConstants), mConstantBuffers["object"].Get());
 
-		context->VSSetConstantBuffers(0, 1, mConstantBuffer.GetAddressOf());
+		context->VSSetConstantBuffers(0, 1, mConstantBuffers["object"].GetAddressOf());
+
+		// 材质常量缓冲区数据.
+		MaterialConstants matConstants;
+		matConstants.DiffuseAlbedo = ri->Mat->DiffuseAlbedo;
+		matConstants.FresnelR0 = ri->Mat->FresnelR0;
+		matConstants.MatTransform = ri->Mat->MatTransform;
+		matConstants.Roughness = ri->Mat->Roughness;
+		d3dUtil::CopyDataToGpu(context, &matConstants,
+			sizeof(MaterialConstants), mConstantBuffers["material"].Get());
+
+		context->PSSetConstantBuffers(1, 1, mConstantBuffers["material"].GetAddressOf());
 
 		context->DrawIndexedInstanced(ri->IndexCount, 1, ri->StartIndexLocation,
 			ri->BaseVertexLocation, 0);
