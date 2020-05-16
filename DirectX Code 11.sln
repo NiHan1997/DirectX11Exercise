@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter_7", "Chapter_7", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05 WavesLightingApp", "Chapter_7\05 WavesLightingApp\05 WavesLightingApp.vcxproj", "{E1A951AF-ECC0-4758-B22F-EB1EFBFF2CCD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06 ShapesLightingApp", "Chapter_7\06 ShapesLightingApp\06 ShapesLightingApp.vcxproj", "{7C9797E1-D7AF-4124-9C7B-06698988CC70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -65,6 +67,14 @@ Global
 		{E1A951AF-ECC0-4758-B22F-EB1EFBFF2CCD}.Release|x64.Build.0 = Release|x64
 		{E1A951AF-ECC0-4758-B22F-EB1EFBFF2CCD}.Release|x86.ActiveCfg = Release|Win32
 		{E1A951AF-ECC0-4758-B22F-EB1EFBFF2CCD}.Release|x86.Build.0 = Release|Win32
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Debug|x64.ActiveCfg = Debug|x64
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Debug|x64.Build.0 = Debug|x64
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Debug|x86.ActiveCfg = Debug|Win32
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Debug|x86.Build.0 = Debug|Win32
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Release|x64.ActiveCfg = Release|x64
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Release|x64.Build.0 = Release|x64
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Release|x86.ActiveCfg = Release|Win32
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +85,7 @@ Global
 		{B5E7EE3C-C0BA-4774-B791-43628A9DAADF} = {557EB2FE-92F0-432B-A5FC-857F63F98037}
 		{EE18DF04-1BC1-4FE7-9223-03D598B7B9EF} = {557EB2FE-92F0-432B-A5FC-857F63F98037}
 		{E1A951AF-ECC0-4758-B22F-EB1EFBFF2CCD} = {C4A45716-5428-429A-BB8A-1D7B3583F6BC}
+		{7C9797E1-D7AF-4124-9C7B-06698988CC70} = {C4A45716-5428-429A-BB8A-1D7B3583F6BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2115F6F5-7742-4393-9982-F3BCA02C440B}
