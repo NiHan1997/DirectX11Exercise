@@ -12,3 +12,6 @@
 # Chapter 7
 * 05 Chapter 7 WavesLightingApp: 在这里将框架再次重构，添加了光照信息、材质信息，优化了时间处理。
 * 06 Chapter 7 ShapesLightingApp: 有了光照，场景相对的有了一定细节，后序还会更加完善。
+
+# Chapter 8
+* 07 Chapter 8 CrateApp: 纹理使用细节很多，在这里只是最基础的使用。
