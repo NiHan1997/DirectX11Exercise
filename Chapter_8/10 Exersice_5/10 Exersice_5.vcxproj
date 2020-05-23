@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{DA086733-C726-47FE-8E4C-562F79348F87}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>My10Exersice5</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Common\d3dApp.cpp" />
+    <ClCompile Include="..\..\Common\d3dUtil.cpp" />
+    <ClCompile Include="..\..\Common\DDSTextureLoader.cpp" />
+    <ClCompile Include="..\..\Common\dxerr.cpp" />
+    <ClCompile Include="..\..\Common\GameTimer.cpp" />
+    <ClCompile Include="..\..\Common\GeometryGenerator.cpp" />
+    <ClCompile Include="..\..\Common\MathHelper.cpp" />
+    <ClCompile Include="CreteApp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Common\d3dApp.h" />
+    <ClInclude Include="..\..\Common\d3dUtil.h" />
+    <ClInclude Include="..\..\Common\d3dx11effect.h" />
+    <ClInclude Include="..\..\Common\DDSTextureLoader.h" />
+    <ClInclude Include="..\..\Common\dxerr.h" />
+    <ClInclude Include="..\..\Common\GameTimer.h" />
+    <ClInclude Include="..\..\Common\GeometryGenerator.h" />
+    <ClInclude Include="..\..\Common\MathHelper.h" />
+    <ClInclude Include="CreteApp.h" />
+    <ClInclude Include="FrameResources.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Default.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="Shaders\LightingUtil.hlsl">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\Fire001.DDS" />
+    <Image Include="Textures\Fire002.DDS" />
+    <Image Include="Textures\Fire003.DDS" />
+    <Image Include="Textures\Fire004.DDS" />
+    <Image Include="Textures\Fire005.DDS" />
+    <Image Include="Textures\Fire006.DDS" />
+    <Image Include="Textures\Fire007.DDS" />
+    <Image Include="Textures\Fire008.DDS" />
+    <Image Include="Textures\Fire009.DDS" />
+    <Image Include="Textures\Fire010.DDS" />
+    <Image Include="Textures\Fire011.DDS" />
+    <Image Include="Textures\Fire012.DDS" />
+    <Image Include="Textures\Fire013.DDS" />
+    <Image Include="Textures\Fire014.DDS" />
+    <Image Include="Textures\Fire015.DDS" />
+    <Image Include="Textures\Fire016.DDS" />
+    <Image Include="Textures\Fire017.DDS" />
+    <Image Include="Textures\Fire018.DDS" />
+    <Image Include="Textures\Fire019.DDS" />
+    <Image Include="Textures\Fire020.DDS" />
+    <Image Include="Textures\Fire021.DDS" />
+    <Image Include="Textures\Fire022.DDS" />
+    <Image Include="Textures\Fire023.DDS" />
+    <Image Include="Textures\Fire024.DDS" />
+    <Image Include="Textures\Fire025.DDS" />
+    <Image Include="Textures\Fire026.DDS" />
+    <Image Include="Textures\Fire027.DDS" />
+    <Image Include="Textures\Fire028.DDS" />
+    <Image Include="Textures\Fire029.DDS" />
+    <Image Include="Textures\Fire030.DDS" />
+    <Image Include="Textures\Fire031.DDS" />
+    <Image Include="Textures\Fire032.DDS" />
+    <Image Include="Textures\Fire033.DDS" />
+    <Image Include="Textures\Fire034.DDS" />
+    <Image Include="Textures\Fire035.DDS" />
+    <Image Include="Textures\Fire036.DDS" />
+    <Image Include="Textures\Fire037.DDS" />
+    <Image Include="Textures\Fire038.DDS" />
+    <Image Include="Textures\Fire039.DDS" />
+    <Image Include="Textures\Fire040.DDS" />
+    <Image Include="Textures\Fire041.DDS" />
+    <Image Include="Textures\Fire042.DDS" />
+    <Image Include="Textures\Fire043.DDS" />
+    <Image Include="Textures\Fire044.DDS" />
+    <Image Include="Textures\Fire045.DDS" />
+    <Image Include="Textures\Fire046.DDS" />
+    <Image Include="Textures\Fire047.DDS" />
+    <Image Include="Textures\Fire048.DDS" />
+    <Image Include="Textures\Fire049.DDS" />
+    <Image Include="Textures\Fire050.DDS" />
+    <Image Include="Textures\Fire051.DDS" />
+    <Image Include="Textures\Fire052.DDS" />
+    <Image Include="Textures\Fire053.DDS" />
+    <Image Include="Textures\Fire054.DDS" />
+    <Image Include="Textures\Fire055.DDS" />
+    <Image Include="Textures\Fire056.DDS" />
+    <Image Include="Textures\Fire057.DDS" />
+    <Image Include="Textures\Fire058.DDS" />
+    <Image Include="Textures\Fire059.DDS" />
+    <Image Include="Textures\Fire060.DDS" />
+    <Image Include="Textures\Fire061.DDS" />
+    <Image Include="Textures\Fire062.DDS" />
+    <Image Include="Textures\Fire063.DDS" />
+    <Image Include="Textures\Fire064.DDS" />
+    <Image Include="Textures\Fire065.DDS" />
+    <Image Include="Textures\Fire066.DDS" />
+    <Image Include="Textures\Fire067.DDS" />
+    <Image Include="Textures\Fire068.DDS" />
+    <Image Include="Textures\Fire069.DDS" />
+    <Image Include="Textures\Fire070.DDS" />
+    <Image Include="Textures\Fire071.DDS" />
+    <Image Include="Textures\Fire072.DDS" />
+    <Image Include="Textures\Fire073.DDS" />
+    <Image Include="Textures\Fire074.DDS" />
+    <Image Include="Textures\Fire075.DDS" />
+    <Image Include="Textures\Fire076.DDS" />
+    <Image Include="Textures\Fire077.DDS" />
+    <Image Include="Textures\Fire078.DDS" />
+    <Image Include="Textures\Fire079.DDS" />
+    <Image Include="Textures\Fire080.DDS" />
+    <Image Include="Textures\Fire081.DDS" />
+    <Image Include="Textures\Fire082.DDS" />
+    <Image Include="Textures\Fire083.DDS" />
+    <Image Include="Textures\Fire084.DDS" />
+    <Image Include="Textures\Fire085.DDS" />
+    <Image Include="Textures\Fire086.DDS" />
+    <Image Include="Textures\Fire087.DDS" />
+    <Image Include="Textures\Fire088.DDS" />
+    <Image Include="Textures\Fire089.DDS" />
+    <Image Include="Textures\Fire090.DDS" />
+    <Image Include="Textures\Fire091.DDS" />
+    <Image Include="Textures\Fire092.DDS" />
+    <Image Include="Textures\Fire093.DDS" />
+    <Image Include="Textures\Fire094.DDS" />
+    <Image Include="Textures\Fire095.DDS" />
+    <Image Include="Textures\Fire096.DDS" />
+    <Image Include="Textures\Fire097.DDS" />
+    <Image Include="Textures\Fire098.DDS" />
+    <Image Include="Textures\Fire099.DDS" />
+    <Image Include="Textures\Fire100.DDS" />
+    <Image Include="Textures\Fire101.DDS" />
+    <Image Include="Textures\Fire102.DDS" />
+    <Image Include="Textures\Fire103.DDS" />
+    <Image Include="Textures\Fire104.DDS" />
+    <Image Include="Textures\Fire105.DDS" />
+    <Image Include="Textures\Fire106.DDS" />
+    <Image Include="Textures\Fire107.DDS" />
+    <Image Include="Textures\Fire108.DDS" />
+    <Image Include="Textures\Fire109.DDS" />
+    <Image Include="Textures\Fire110.DDS" />
+    <Image Include="Textures\Fire111.DDS" />
+    <Image Include="Textures\Fire112.DDS" />
+    <Image Include="Textures\Fire113.DDS" />
+    <Image Include="Textures\Fire114.DDS" />
+    <Image Include="Textures\Fire115.DDS" />
+    <Image Include="Textures\Fire116.DDS" />
+    <Image Include="Textures\Fire117.DDS" />
+    <Image Include="Textures\Fire118.DDS" />
+    <Image Include="Textures\Fire119.DDS" />
+    <Image Include="Textures\Fire120.DDS" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

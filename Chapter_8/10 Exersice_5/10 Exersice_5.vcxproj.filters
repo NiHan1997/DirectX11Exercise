@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="纹理贴图">
+      <UniqueIdentifier>{eea7113f-652d-4386-89a2-46dee0739271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="着色器">
+      <UniqueIdentifier>{6cc30b74-196f-4db8-8473-0a262297c106}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CreteApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\d3dApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\d3dUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DDSTextureLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\dxerr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GameTimer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GeometryGenerator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\MathHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CreteApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameResources.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\d3dApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\d3dUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\d3dx11effect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DDSTextureLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\dxerr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\GameTimer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\GeometryGenerator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\MathHelper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\LightingUtil.hlsl">
+      <Filter>着色器</Filter>
+    </None>
+    <None Include="Shaders\Default.hlsl">
+      <Filter>着色器</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\Fire001.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire002.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire003.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire004.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire005.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire006.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire007.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire008.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire009.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire010.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire011.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire012.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire013.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire014.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire015.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire016.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire017.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire018.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire019.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire020.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire021.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire022.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire023.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire024.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire025.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire026.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire027.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire028.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire029.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire030.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire031.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire032.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire033.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire034.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire035.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire036.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire037.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire038.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire039.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire040.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire041.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire042.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire043.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire044.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire045.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire046.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire047.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire048.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire049.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire050.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire051.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire052.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire053.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire054.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire055.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire056.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire057.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire058.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire059.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire060.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire061.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire062.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire063.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire064.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire065.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire066.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire067.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire068.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire069.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire070.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire071.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire072.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire073.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire074.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire075.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire076.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire077.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire078.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire079.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire080.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire081.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire082.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire083.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire084.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire085.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire086.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire087.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire088.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire089.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire090.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire091.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire092.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire093.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire094.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire095.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire096.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire097.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire098.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire099.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire100.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire101.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire102.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire103.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire104.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire105.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire106.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire107.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire108.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire109.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire110.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire111.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire112.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire113.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire114.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire115.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire116.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire117.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire118.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire119.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+    <Image Include="Textures\Fire120.DDS">
+      <Filter>纹理贴图</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
