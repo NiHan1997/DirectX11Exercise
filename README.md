@@ -15,3 +15,4 @@
 
 # Chapter 8
 * 07 Chapter 8 CrateApp: 纹理使用细节很多，在这里只是最基础的使用。
+* 08 Chapter 8 WavesApp: 原书基础上还原，添加了纹理，程序逐渐开始有趣，陆地海洋也开始漂亮了。
