@@ -205,6 +205,7 @@ void StencilApp::UpdateCamera(GameTimer gt)
 	XMVECTOR up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 	XMMATRIX view = XMMatrixLookAtLH(pos, target, up);
 
+	XMStoreFloat3(&mEyePos, pos);
 	XMStoreFloat4x4(&mView, view);
 }
 
