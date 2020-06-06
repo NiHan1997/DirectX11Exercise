@@ -19,6 +19,7 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include <array>
 #include "MathHelper.h"
 #include <wrl.h>
 #include <unordered_map>
