@@ -10,36 +10,16 @@
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
     <Filter Include="着色器">
-      <UniqueIdentifier>{856557e5-3d1f-4bf5-83e8-2c8a243c76f2}</UniqueIdentifier>
+      <UniqueIdentifier>{46b7d130-665d-4d75-a098-db3b44a39b17}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Common\d3dApp.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\d3dUtil.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\DDSTextureLoader.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\dxerr.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\GameTimer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\GeometryGenerator.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Common\MathHelper.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereApp.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="FrameResources.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Common\d3dApp.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -64,17 +44,35 @@
     <ClInclude Include="..\..\Common\MathHelper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SphereApp.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="FrameResources.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\LightingUtil.hlsl">
-      <Filter>着色器</Filter>
-    </None>
+    <ClCompile Include="SphereApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\d3dApp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\d3dUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DDSTextureLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\dxerr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GameTimer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GeometryGenerator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\MathHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\LightingUtil.hlsl" />
     <None Include="Shaders\Default.hlsl">
       <Filter>着色器</Filter>
     </None>
